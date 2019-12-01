@@ -1,0 +1,19 @@
+﻿<pu:WindowX x:Class="AHpxLauncher.Views.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+        xmlns:local="clr-namespace:AHpxLauncher.Views"
+        mc:Ignorable="d"
+        Title="添加一个账号" Height="276" Width="488" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Canvas x:Name="AccountGrid">
+        <TextBlock Text="账号类型" Canvas.Left="10" Canvas.Top="10"/>
+        <ComboBox Name="Combox_AccountType" pu:ComboBoxHelper.CornerRadius="5" Canvas.Left="70" Canvas.Top="8" Width="409">
+            <ComboBoxItem Content="正版账号" IsSelected="True" x:Name="ComBoxItem_OnlineType" Selected="ComBoxItem_OnlineType_Selected"></ComboBoxItem>
+            <ComboBoxItem Content="离线账号" x:Name="ComBoxItem_OfflineType" Selected="ComBoxItem_OfflineType_Selected"></ComboBoxItem>
+            <ComboBoxItem Content="统一通行证" x:Name="ComBoxItem_Passport" Selected="ComBoxItem_Passport_Selected"></ComboBoxItem>
+        </ComboBox>
+
+    </Canvas>
+</pu:WindowX>

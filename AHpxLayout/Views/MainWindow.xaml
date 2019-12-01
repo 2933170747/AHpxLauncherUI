@@ -1,0 +1,523 @@
+﻿<pu:WindowX x:Class="AHpxLauncher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+        xmlns:local="clr-namespace:AHpxLauncher"
+        mc:Ignorable="d"
+        Background="Transparent"
+        Height="456"
+        Width="800"
+        ResizeMode="CanMinimize"
+        Loaded="WindowX_MainView_Loaded"
+        x:Name="WindowX_MainView"
+        WindowStartupLocation="CenterScreen"
+        MouseDown="WindowX_MainView_MouseDown">
+    <pu:WindowXCaption.Header>
+        <TextBlock FontSize="20" Margin="45,0,0,0">
+            <Run Text="AHpx" Foreground="Red"/>
+            <Run Text="Launcher"/>
+        </TextBlock>
+    </pu:WindowXCaption.Header>
+    <Grid x:Name="Grid_MainInterface">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="750"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TreeView pu:TreeViewHelper.TreeViewStyle="Modern"
+                  FontFamily="{DynamicResource FontAwesome}"
+                  Width="45"
+                  Opacity="0.7"
+                  Background="White"
+                  Margin="-4,-37,0,0"
+                  HorizontalAlignment="Left"
+                  Grid.Column="0"
+                  x:Name="TreeView_PageChanger">
+            <TreeViewItem x:Name="TreeViewItem_Home"
+                          pu:TreeViewHelper.ItemIcon="&#xF015;"
+                          Padding="10,0,0,0"
+                          Width="40"
+                          IsSelected="True"
+                          Selected="TreeViewItem_Home_Selected"
+                          FontFamily="{DynamicResource FontAwesome}"/>
+            <TreeViewItem x:Name="TreeViewItem_Account"
+                          pu:TreeViewHelper.ItemIcon="&#xF007;"
+                          Padding="10,0,0,0"
+                          Width="40"
+                          Selected="TreeViewItem_Account_Selected"
+                          FontFamily="{DynamicResource FontAwesome}"/>
+            <TreeViewItem x:Name="TreeViewItem_Setting"
+                          pu:TreeViewHelper.ItemIcon="&#xF013;"
+                          Padding="10,0,0,0"
+                          Width="40"
+                          Selected="TreeViewItem_Setting_Selected"
+                          FontFamily="{DynamicResource FontAwesome}"/>
+            <TreeViewItem x:Name="TreeViewItem_Tools"
+                          pu:TreeViewHelper.ItemIcon="&#xf00a;"
+                          Padding="10,0,0,0"
+                          Width="40"
+                          Selected="TreeViewItem_Tools_Selected"
+                          FontFamily="{DynamicResource FontAwesome}"/>
+        </TreeView>
+        <TabControl 
+            Background="Transparent"
+            Margin="5,0,-2,0"
+            x:Name="TabControl_SelectPages"
+            Grid.Column="1"
+            pu:TabControlHelper.ItemHeight="0"
+            pu:TabControlHelper.TabControlStyle="Card">
+            <TabItem Header="Home" x:Name="TabItem_Home" Visibility="Visible">
+                <Grid x:Name="Grid_Home">
+                    <pu:DropDown Margin="644,10,10,321">
+                        <pu:DropDown.Content>
+                            <Grid Width="200">
+                                <Ellipse Height="80"
+                                                 Width="80"
+                                                 HorizontalAlignment="Left"
+                                                 Stroke="LightGray"
+                                                 StrokeThickness="1"
+                                                 pu:LayoutHelper.ColumnDefinition="0.5*">
+                                    <Ellipse.Fill>
+                                        <ImageBrush RenderOptions.BitmapScalingMode="HighQuality"
+                                                            ImageSource="/Res/Steve.jpg" x:Name="Image_UserImg"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                            </Grid>
+                        </pu:DropDown.Content>
+                        <pu:DropDown.Child>
+                            <Grid Height="200" Width="350">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="55" />
+                                    <!--0-->
+                                    <RowDefinition/>
+                                    <!--1-->
+                                    <RowDefinition/>
+                                    <!--2-->
+                                    <RowDefinition/>
+                                    <!--3-->
+                                    <RowDefinition/>
+                                    <!--4-->
+                                    <RowDefinition/>
+                                    <!--5-->
+                                    <RowDefinition/>
+                                    <!--6-->
+                                </Grid.RowDefinitions>
+                                <Grid Margin="15,0">
+                                    <Ellipse Height="35"
+                                                     Width="35"
+                                                     Stroke="LightGray"
+                                                     VerticalAlignment="Center"
+                                                     StrokeThickness="1"
+                                                     HorizontalAlignment="Left"
+                                                     pu:LayoutHelper.ColumnDefinition="0.5*">
+                                        <Ellipse.Fill>
+                                            <ImageBrush RenderOptions.BitmapScalingMode="HighQuality"
+                                                                x:Name="Image_UserImg_back"
+                                                                ImageSource="/Res/Steve.jpg" />
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <TextBlock Margin="50,0,0,0"
+                                                       Text="AHpxChina"
+                                                       x:Name="TextBlock_UserName"
+                                                       Foreground="Gray"
+                                                       FontSize="15"
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Right" />
+                                </Grid>
+                                <Border VerticalAlignment="Bottom"
+                                                BorderBrush="#EEEEEE"
+                                                BorderThickness="0,0,0,1" />
+                                <Grid Grid.Row="1"
+                                              Margin="15,0">
+                                    <TextBlock VerticalAlignment="Center"
+                                                       Foreground="Gray"
+                                                       Text="UUID" />
+                                    <TextBlock VerticalAlignment="Center"
+                                                       Foreground="Gray"
+                                                       Text="UUID-UUID-UUID-UUID"
+                                                       HorizontalAlignment="Right"/>
+                                </Grid>
+                                <Grid Grid.Row="2"
+                                              Margin="15,0">
+                                    <TextBlock VerticalAlignment="Center"
+                                                       Foreground="Gray"
+                                                       Text="UUID" />
+                                    <TextBlock VerticalAlignment="Center"
+                                                       Foreground="Gray"
+                                                       Text="UUID-UUID-UUID-UUID"
+                                                       HorizontalAlignment="Right"/>
+                                </Grid>
+                                <Grid Grid.Row="3"
+                                              Margin="15,0">
+                                    <TextBlock VerticalAlignment="Center"
+                                                       Foreground="Gray"
+                                                       Text="正版账户" />
+                                    <CheckBox pu:CheckBoxHelper.CheckBoxStyle="Switch"
+                                                      pu:CheckBoxHelper.CheckedBackground="#74C178"
+                                                      pu:CheckBoxHelper.CornerRadius="2"
+                                                      pu:CheckBoxHelper.BoxHeight="25"
+                                                      pu:CheckBoxHelper.BoxWidth="35"
+                                                      Foreground="Gray"
+                                                      VerticalAlignment="Center"
+                                                      IsChecked="True"
+                                                      FontFamily="{StaticResource ResourceKey=FontAwesome}"
+                                                      HorizontalAlignment="Right" />
+                                </Grid>
+
+                                <Border Grid.Row="1"
+                                                VerticalAlignment="Bottom"
+                                                BorderBrush="#EEEEEE"
+                                                BorderThickness="0,0,0,1" />
+                                <Border Grid.Row="2"
+                                                VerticalAlignment="Bottom"
+                                                BorderBrush="#EEEEEE"
+                                                BorderThickness="0,0,0,1" />
+                                <Grid Grid.Row="6" VerticalAlignment="Bottom">
+                                    <Button pu:ButtonHelper.ButtonStyle="Link"
+                                                    Height="30"
+                                                    x:Name="Button_HomeSignOut"
+                                                    VerticalAlignment="Bottom"
+                                                    FontFamily="{StaticResource ResourceKey=FontAwesome}"
+                                                    Content="&#xf08b; 切换账号"
+                                                    Click="Button_HomeSignOut_Click"/>
+                                </Grid>
+                            </Grid>
+                        </pu:DropDown.Child>
+                    </pu:DropDown>
+                    <Border Background="Transparent" BorderThickness="1" BorderBrush="Gray" CornerRadius="5" Margin="10,354,169,10">
+                        <Grid Margin="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="7*"/>
+                                <RowDefinition Height="4*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Margin="0,0,0,5" FontSize="16">
+                                <Run Text="正版用户:" Foreground="Red" x:Name="Display_UserType"></Run>
+                                <Run Text="AHpx" x:Name="Display_UserName"></Run>
+                                <Run Text="已登录" x:Name="Display_UserState"></Run>
+                            </TextBlock>
+                            <TextBlock Grid.Row="1" FontSize="12">
+                                <Run Text="选择版本:" Foreground="Red"></Run>
+                                <Run Text="Minecraft"></Run>
+                                <Run Text="1.8.9-forge-111-111-1-1-1-15-54-541" x:Name="Display_VeriosnSelect"></Run>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                    <Button Content="启动游戏"
+                            Margin="584,354,10,10"
+                            pu:ButtonHelper.CornerRadius="5" Click="Button_Click">
+                        <Button.ContextMenu>
+                            <ContextMenu pu:IconHelper.Width="45"
+                                         pu:ContextMenuHelper.CornerRadius="5"
+                                         Padding="0,5"
+                                         Width="250"
+                                         FontSize="12"
+                                         x:Name="ContextMenu_VersionsSelector"/>
+                        </Button.ContextMenu>
+                    </Button>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Account" x:Name="TabItem_Account" Visibility="Visible">
+                <Grid x:Name="Grid_Account">
+                    <pu:WaterfallViewer x:Name="AccountMgrList" Background="Transparent" Groups="6" pu:AnimationHelper.FadeIn="True">
+                        <pu:WaterfallViewer.ContextMenu>
+                            <ContextMenu pu:ContextMenuHelper.CornerRadius="5">
+                                <MenuItem Header="添加一个账号" Click="MenuItem_AddAccount_Click">
+                                    <MenuItem.Icon>
+                                        <Image Source="/Res/icons/icon_add.png"></Image>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem pu:ContextMenuHelper.CornerRadius="5" Header="删除所有账号" Click="MenuItem_DeleteAllAccount_Click">
+                                    <MenuItem.Icon>
+                                        <Image Source="/Res/icons/icon_delete.png"></Image>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+
+                            </ContextMenu>
+                        </pu:WaterfallViewer.ContextMenu>
+                    </pu:WaterfallViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Setting" x:Name="TabItem_Setting" Visibility="Visible">
+                <Grid x:Name="Grid_Setting">
+                    <TabControl FontFamily="Microsoft YaHei" Background="Transparent">
+                        <TabItem x:Name="TabItem_LauncherSetting" Header="启动器设置" IsSelected="True" Selector.Selected="TabItem_LauncherSetting_Selected">
+                            <Grid x:Name="Grid_LauncherSetting" Background="Transparent">
+                                <ScrollViewer VerticalScrollBarVisibility="Visible"
+                                              HorizontalScrollBarVisibility="Hidden"
+                                              HorizontalAlignment="Center"
+                                              VerticalContentAlignment="Stretch"
+                                              pu:ScrollViewerHelper.ScrollBarThickness="8"
+                                              pu:ScrollViewerHelper.ScrollBarCornerRadius="5">
+                                    <WrapPanel Orientation="Vertical" Margin="0,0,0,0">
+                                        <GroupBox Header="常规设置"
+                                              pu:GroupBoxHelper.CornerRadius="5"
+                                              pu:GroupBoxHelper.ShadowColor="LightGray"
+                                              Margin="4,10,10,10" Width="724"
+                                              Background="Transparent">
+                                            <StackPanel Background="Transparent">
+                                                <Grid>
+                                                    <TextBlock Text="Java" Margin="10,11,674,9"/>
+                                                    <ComboBox Background="Transparent" Margin="58,5,5,5" pu:ComboBoxHelper.CornerRadius="5" pu:ComboBoxHelper.Watermark="Jre/Jdk路径" Height="30">
+                                                        <ComboBox.ContextMenu>
+                                                            <ContextMenu pu:ContextMenuHelper.CornerRadius="5">
+                                                                <MenuItem Header="自动获取Java路径">
+                                                                    <MenuItem.Icon>
+                                                                        <Image Source="/Res/Icons/icon_add.png"/>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                                <MenuItem Header="手动浏览Java路径">
+                                                                    <MenuItem.Icon>
+                                                                        <Image Source="/Res/Icons/icon_add.png"/>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                            </ContextMenu>
+                                                        </ComboBox.ContextMenu>
+                                                    </ComboBox>
+                                                </Grid>
+                                                <Grid>
+                                                    <TextBlock Text="内存" Margin="10,11,674,9"/>
+                                                    <TextBox Background="Transparent" Margin="58,5,5,5" pu:TextBoxHelper.CornerRadius="5" pu:TextBoxHelper.Watermark="分配给Minecraft的内存大小" pu:TextBoxHelper.IsClearButtonVisible="True" Height="30">
+                                                        <TextBox.ContextMenu>
+                                                            <ContextMenu pu:ContextMenuHelper.CornerRadius="5">
+                                                                <MenuItem Header="自动分配内存">
+                                                                    <MenuItem.Icon>
+                                                                        <Image Source="/Res/Icons/icon_add.png"/>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                            </ContextMenu>
+                                                        </TextBox.ContextMenu>
+                                                    </TextBox>
+                                                </Grid>
+                                                <Grid>
+                                                    <TextBlock Text="内存" Margin="10,11,674,9"/>
+                                                    <TextBox Background="Transparent" Margin="58,5,5,5" pu:TextBoxHelper.CornerRadius="5" pu:TextBoxHelper.Watermark="分配给Minecraft的内存大小" pu:TextBoxHelper.IsClearButtonVisible="True" Height="30">
+                                                        <TextBox.ContextMenu>
+                                                            <ContextMenu pu:ContextMenuHelper.CornerRadius="5">
+                                                                <MenuItem Header="自动分配内存">
+                                                                    <MenuItem.Icon>
+                                                                        <Image Source="/Res/Icons/icon_add.png"/>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                            </ContextMenu>
+                                                        </TextBox.ContextMenu>
+                                                    </TextBox>
+                                                </Grid>
+                                                <Grid>
+                                                    <TextBlock Text="内存" Margin="10,11,674,9"/>
+                                                    <TextBox Background="Transparent" Margin="58,5,5,5" pu:TextBoxHelper.CornerRadius="5" pu:TextBoxHelper.Watermark="分配给Minecraft的内存大小" pu:TextBoxHelper.IsClearButtonVisible="True" Height="30">
+                                                        <TextBox.ContextMenu>
+                                                            <ContextMenu pu:ContextMenuHelper.CornerRadius="5">
+                                                                <MenuItem Header="自动分配内存">
+                                                                    <MenuItem.Icon>
+                                                                        <Image Source="/Res/Icons/icon_add.png"/>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                            </ContextMenu>
+                                                        </TextBox.ContextMenu>
+                                                    </TextBox>
+                                                </Grid>
+                                                <Grid>
+                                                    <TextBlock Text="内存" Margin="10,11,674,9"/>
+                                                    <TextBox Background="Transparent" Margin="58,5,5,5" pu:TextBoxHelper.CornerRadius="5" pu:TextBoxHelper.Watermark="分配给Minecraft的内存大小" pu:TextBoxHelper.IsClearButtonVisible="True" Height="30">
+                                                        <TextBox.ContextMenu>
+                                                            <ContextMenu pu:ContextMenuHelper.CornerRadius="5">
+                                                                <MenuItem Header="自动分配内存">
+                                                                    <MenuItem.Icon>
+                                                                        <Image Source="/Res/Icons/icon_add.png"/>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                            </ContextMenu>
+                                                        </TextBox.ContextMenu>
+                                                    </TextBox>
+                                                </Grid>
+                                                <Grid>
+                                                    <TextBlock Text="内存" Margin="10,11,674,9"/>
+                                                    <TextBox Background="Transparent" Margin="58,5,5,5" pu:TextBoxHelper.CornerRadius="5" pu:TextBoxHelper.Watermark="分配给Minecraft的内存大小" pu:TextBoxHelper.IsClearButtonVisible="True" Height="30">
+                                                        <TextBox.ContextMenu>
+                                                            <ContextMenu pu:ContextMenuHelper.CornerRadius="5">
+                                                                <MenuItem Header="自动分配内存">
+                                                                    <MenuItem.Icon>
+                                                                        <Image Source="/Res/Icons/icon_add.png"/>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                            </ContextMenu>
+                                                        </TextBox.ContextMenu>
+                                                    </TextBox>
+                                                </Grid>
+                                                <Grid>
+                                                    <TextBlock Text="内存" Margin="10,11,674,9"/>
+                                                    <TextBox Background="Transparent" Margin="58,5,5,5" pu:TextBoxHelper.CornerRadius="5" pu:TextBoxHelper.Watermark="分配给Minecraft的内存大小" pu:TextBoxHelper.IsClearButtonVisible="True" Height="30">
+                                                        <TextBox.ContextMenu>
+                                                            <ContextMenu pu:ContextMenuHelper.CornerRadius="5">
+                                                                <MenuItem Header="自动分配内存">
+                                                                    <MenuItem.Icon>
+                                                                        <Image Source="/Res/Icons/icon_add.png"/>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                            </ContextMenu>
+                                                        </TextBox.ContextMenu>
+                                                    </TextBox>
+                                                </Grid>
+                                                <Grid>
+                                                    <TextBlock Text="内存" Margin="10,11,674,9"/>
+                                                    <TextBox Background="Transparent" Margin="58,5,5,5" pu:TextBoxHelper.CornerRadius="5" pu:TextBoxHelper.Watermark="分配给Minecraft的内存大小" pu:TextBoxHelper.IsClearButtonVisible="True" Height="30">
+                                                        <TextBox.ContextMenu>
+                                                            <ContextMenu pu:ContextMenuHelper.CornerRadius="5">
+                                                                <MenuItem Header="自动分配内存">
+                                                                    <MenuItem.Icon>
+                                                                        <Image Source="/Res/Icons/icon_add.png"/>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                            </ContextMenu>
+                                                        </TextBox.ContextMenu>
+                                                    </TextBox>
+                                                </Grid>
+
+                                            </StackPanel>
+                                        </GroupBox>
+                                        <GroupBox Header="偏好设置"
+                                              pu:GroupBoxHelper.CornerRadius="5"
+                                              pu:GroupBoxHelper.ShadowColor="LightGray"
+                                              Margin="4,10,10,10" Width="724"
+                                              Background="Transparent">
+                                            <StackPanel>
+                                                <Grid>
+                                                    <TextBlock Text="启动后" Margin="6,10,668,10"/>
+                                                    <ComboBox Background="Transparent" Margin="58,5,5,5" pu:ComboBoxHelper.CornerRadius="5" Height="30">
+                                                        <ComboBoxItem Content="关闭启动器"/>
+                                                        <ComboBoxItem Content="最小化启动器" IsSelected="True"/>
+                                                        <ComboBoxItem Content="隐藏启动器，直到游戏退出"/>
+                                                        <ComboBoxItem Content="保持启动器运行"/>
+                                                    </ComboBox>
+                                                </Grid>
+                                                <Grid>
+                                                    <TextBlock Text="标题" Margin="6,10,668,10"/>
+                                                    <TextBox Background="Transparent" Margin="58,5,5,5" pu:TextBoxHelper.CornerRadius="5" pu:TextBoxHelper.Watermark="Minecraft窗口的标题" pu:TextBoxHelper.IsClearButtonVisible="True" Height="30">
+                                                        <TextBox.ContextMenu>
+                                                            <ContextMenu pu:ContextMenuHelper.CornerRadius="5">
+                                                                <MenuItem Header="随机古诗">
+                                                                    <MenuItem.Icon>
+                                                                        <Image Source="/Res/Icons/icon_add.png"/>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                            </ContextMenu>
+                                                        </TextBox.ContextMenu>
+                                                    </TextBox>
+                                                </Grid>
+                                            </StackPanel>
+                                        </GroupBox>
+                                        <GroupBox Header="高级设置"
+                                              pu:GroupBoxHelper.CornerRadius="5"
+                                              pu:GroupBoxHelper.ShadowColor="LightGray"
+                                              Margin="4,10,10,10" Width="724"
+                                              Background="Transparent">
+                                            <StackPanel>
+                                                <Grid>
+                                                    <TextBlock Text="Jvm" Margin="10,10,680,10"/>
+                                                    <TextBox Background="Transparent" Margin="58,5,5,5" pu:TextBoxHelper.CornerRadius="5" pu:TextBoxHelper.IsClearButtonVisible="True" pu:TextBoxHelper.Watermark="Java虚拟机参数，一般无需填写" Height="30">
+                                                        <TextBox.ContextMenu>
+                                                            <ContextMenu pu:ContextMenuHelper.CornerRadius="5">
+                                                                <MenuItem Header="-noverify">
+                                                                    <MenuItem.Icon>
+                                                                        <Image Source="/Res/Icons/icon_add.png"/>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                            </ContextMenu>
+                                                        </TextBox.ContextMenu>
+                                                    </TextBox>
+                                                </Grid>
+                                                <Grid>
+                                                    <TextBlock Text="前置参数" Margin="0,10,659,10"/>
+                                                    <TextBox Background="Transparent" Margin="58,5,5,5" pu:TextBoxHelper.CornerRadius="5" pu:TextBoxHelper.IsClearButtonVisible="True" pu:TextBoxHelper.Watermark="Minecraft启动前置参数，一般无需填写" Height="30">
+                                                        <TextBox.ContextMenu>
+                                                            <ContextMenu pu:ContextMenuHelper.CornerRadius="5">
+                                                                <MenuItem Header="-noverify">
+                                                                    <MenuItem.Icon>
+                                                                        <Image Source="/Res/Icons/icon_add.png"/>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                            </ContextMenu>
+                                                        </TextBox.ContextMenu>
+                                                    </TextBox>
+                                                </Grid>
+                                                <Grid>
+                                                    <TextBlock Text="后置参数" Margin="0,10,659,10"/>
+                                                    <TextBox Background="Transparent" Margin="58,5,5,5" pu:TextBoxHelper.CornerRadius="5" pu:TextBoxHelper.IsClearButtonVisible="True" pu:TextBoxHelper.Watermark="Minecraft启动后置参数，一般无需填写" Height="30">
+                                                        <TextBox.ContextMenu>
+                                                            <ContextMenu pu:ContextMenuHelper.CornerRadius="5">
+                                                                <MenuItem Header="-noverify">
+                                                                    <MenuItem.Icon>
+                                                                        <Image Source="/Res/Icons/icon_add.png"/>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                            </ContextMenu>
+                                                        </TextBox.ContextMenu>
+                                                    </TextBox>
+                                                </Grid>
+                                            </StackPanel>
+                                        </GroupBox>
+                                        <GroupBox Header="个性化设置"
+                                              pu:GroupBoxHelper.CornerRadius="5"
+                                              pu:GroupBoxHelper.ShadowColor="LightGray"
+                                              Margin="2,10,10,10" Width="724"
+                                              Background="Transparent">
+                                            <StackPanel>
+                                                <Grid>
+                                                    <TextBlock Text="启动器标题" Margin="1,14,663,16" FontSize="10"/>
+                                                    <TextBox Background="Transparent" Margin="58,5,5,5" pu:TextBoxHelper.CornerRadius="5" pu:TextBoxHelper.IsClearButtonVisible="True" pu:TextBoxHelper.Watermark="AHpx Launcher的标题" Height="30">
+                                                        <TextBox.ContextMenu>
+                                                            <ContextMenu pu:ContextMenuHelper.CornerRadius="5">
+                                                                <MenuItem Header="-noverify">
+                                                                    <MenuItem.Icon>
+                                                                        <Image Source="/Res/Icons/icon_add.png"/>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                            </ContextMenu>
+                                                        </TextBox.ContextMenu>
+                                                    </TextBox>
+                                                </Grid>
+                                                <Grid>
+                                                    <TextBlock Text="背景" Margin="0,10,659,10"/>
+                                                    <ComboBox Background="Transparent" Margin="58,5,5,5" pu:ComboBoxHelper.CornerRadius="5" Height="30">
+                                                        <ComboBox.ContextMenu>
+                                                            <ContextMenu pu:ContextMenuHelper.CornerRadius="5">
+                                                                <MenuItem Header="浏览背景图片">
+                                                                    <MenuItem.Icon>
+                                                                        <Image Source="/Res/Icons/icon_add.png"/>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                            </ContextMenu>
+                                                        </ComboBox.ContextMenu>
+                                                        <ComboBoxItem Content="纯色背景"/>
+                                                        <ComboBoxItem Content="透明模糊背景" IsSelected="True"/>
+                                                        <ComboBoxItem Content="图片背景"/>
+                                                    </ComboBox>
+                                                </Grid>
+                                            </StackPanel>
+                                        </GroupBox>
+                                    </WrapPanel>
+                                </ScrollViewer>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="TabItem_GameSetting" Header="游戏设置" Selector.Selected="TabItem_GameSetting_Selected">
+                            <Grid x:Name="Grid_GameSetting" Background="Transparent">
+
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Tools" x:Name="TabItem_Tools" Visibility="Visible">
+                <Grid x:Name="Grid_Tools">
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+    <pu:WindowX.Resources>
+        <ResourceDictionary Source="pack://application:,,,/Panuon.UI.Silver;component/Control.xaml" />
+    </pu:WindowX.Resources>
+</pu:WindowX>
